@@ -63,7 +63,6 @@ function preapareObject(jsonObject) {
   student.isStared = false;
 
   return student;
-
 }
 
 ////      FILTER DA TING         ////
@@ -109,52 +108,38 @@ function genderIsBoy(allStudent) {
   return allStudent.gender === "Boy";
 }
 /////////////////////////////////////////////
-
-function sortList(sortBy) {
-  let sortedList = allStudent;
-  console.log("clicked");
-
-  if (sortBy === "firstname") {
-    sortedList = sortedList.sort(sortByFirstName);
-    displayList(sortedList);
-  } else if (sortBy === "lastname") {
-    sortedList = sortedList.sort(sortByLastname);
-    displayList(sortedList);
-  } else if (sortBy === "house") {
-    sortedList = sortedList.sort(sortByHouse);
-    displayList(sortedList);
-  }
-  displayList(sortedList);
-}
-
-function sortByFirstName(a, b) {
-  if (a.firstname < b.firstname) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
-
-function sortByLastname(a, b) {
-  if (a.lastname < b.lastname) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
-
-function sortByHouse(a, b) {
-  if (a.house < b.house) {
-    return -1;
-  } else {
-    return 1;
-  }
-}
-
 function selectSort(ev) {
   const sortBy = ev.target.dataset.sort;
-  console.log(sortBy);
-  sortList(sortBy);
+  const sortDir = ev.target.dataset.sortDirection;
+
+  if (sortDir === "desc") {
+    ev.target.dataset.sortDirection = "asc";
+  } else {
+    ev.target.dataset.sortDirection = "desc";
+  }
+  console.log(`the user selected ${sortBy} - ${sortDir}`);
+  sortList(sortBy, sortDir);
+}
+
+function sortList(sortBy, sortDir) {
+  let sortedList = allStudent;
+  let direction = 1;
+  if (sortDir === "desc") {
+    direction = 1;
+  } else {
+    direction = -1;
+  }
+
+  sortedList = sortedList.sort(sortByType);
+
+  function sortByType(a, b) {
+    if (a[sortBy] < b[sortBy]) {
+      return -1 * direction;
+    } else {
+      return 1 * direction;
+    }
+  }
+  displayList(sortedList);
 }
 
 function displayList(students) {
