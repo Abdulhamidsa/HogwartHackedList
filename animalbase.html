@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Animalbase</title>
+  <link rel="stylesheet" href="animalbase.css">
+  <script src="animalbase.js" defer></script>
+
+</head>
+
+<body>
+  <h1>HOGWART STUDENT LISTTTTTTTT</h1>
+  <p>
+    Filter:
+    <button class="filters" data-action="filter" data-filter="Slytherin">Slytherin</button>
+    <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
+    <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button>
+    <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button>
+    <button class="filter" data-action="filter" data-filter="Girl">Girls</button>
+    <button class="filter" data-action="filter" data-filter="Boy">Boys</button>
+    <button class="filter" data-action="filter" data-filter="all">all</button>
+  </p>
+  <p class="ass"></p>
+  <hr>
+
+  <table id="list">
+    <thead>
+      <tr id="sorting">
+        <th data-action="sort" data-sort-direction="asc" data-sort="star">☆</th>
+        <th data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</th>
+        <th data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</th>
+        <th data-action="sort" data-sort-direction="desc" data-sort="house">house</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- animal template will be copied and inserted here -->
+    </tbody>
+  </table>
+
+  <template id="student">
+    <tr>
+      <td data-field="star"></td>
+      <td data-field="firstname">NAME</td>
+      <td data-field="lastname">DESCRIPTION</td>
+      <td data-field="house">house</td>
+      <td data-field="gender">gender</td>
+
+    </tr>
+  </template>
+
+
+</body>
+
+</html>
