@@ -58,6 +58,7 @@ function preapareObject(jsonObject) {
   /*   console.log(student);
    */ student.firstname = nameClean[0];
   student.lastname = nameClean[1];
+
   student.house = houseCleanD[0];
   student.gender = jsonObject.gender.substring(0, 1).toUpperCase() + jsonObject.gender.substring(1).toLowerCase();
   student.isStared = false;
@@ -69,24 +70,36 @@ function preapareObject(jsonObject) {
 function selectFilter(ev) {
   const filterType = ev.target.dataset.filter;
   console.log(`the user picked ${filterType}`);
-  filterList(filterType);
+
+  setFilter(filterType);
 }
-function filterList(filtering) {
-  let filteredArray = allStudent;
-  if (filtering === "Slytherin") {
+
+function setFilter(filterType) {
+  settings.filtering = filterType;
+  buildList();
+}
+function buildList() {
+  const currentList = filterList(allStudent);
+  const sortedList = sortList(currentList);
+
+  displayList(sortedList);
+}
+
+function filterList(filteredArray) {
+  if (settings.filtering === "Slytherin") {
     filteredArray = allStudent.filter(fromSlytherin);
-  } else if (filtering === "Hufflepuff") {
+  } else if (settings.filtering === "Hufflepuff") {
     filteredArray = allStudent.filter(fromHufflepuff);
-  } else if (filtering === "Ravenclaw") {
+  } else if (settings.filtering === "Ravenclaw") {
     filteredArray = allStudent.filter(fromRavenclaw);
-  } else if (filtering === "Gryffindor") {
+  } else if (settings.filtering === "Gryffindor") {
     filteredArray = allStudent.filter(fromGryffindor);
-  } else if (filtering === "Girl") {
+  } else if (settings.filtering === "Girl") {
     filteredArray = allStudent.filter(genderIsGirl);
-  } else if (filtering === "Boy") {
+  } else if (settings.filtering === "Boy") {
     filteredArray = allStudent.filter(genderIsBoy);
   }
-  displayList(filteredArray);
+  return filteredArray;
 }
 
 function fromSlytherin(allStudent) {
@@ -118,13 +131,22 @@ function selectSort(ev) {
     ev.target.dataset.sortDirection = "desc";
   }
   console.log(`the user selected ${sortBy} - ${sortDir}`);
-  sortList(sortBy, sortDir);
+  setSort(sortBy, sortDir);
+}
+const settings = {
+  filtering: "",
+  sortBy: "",
+  sortDir: "",
+};
+function setSort(sortBy, sortDir) {
+  settings.sortBy = sortBy;
+  settings.sortDir = sortDir;
+  buildList();
 }
 
-function sortList(sortBy, sortDir) {
-  let sortedList = allStudent;
+function sortList(sortedList) {
   let direction = 1;
-  if (sortDir === "desc") {
+  if (settings.sortDir === "desc") {
     direction = 1;
   } else {
     direction = -1;
@@ -133,13 +155,13 @@ function sortList(sortBy, sortDir) {
   sortedList = sortedList.sort(sortByType);
 
   function sortByType(a, b) {
-    if (a[sortBy] < b[sortBy]) {
+    if (a[settings.sortBy] < b[settings.sortBy]) {
       return -1 * direction;
     } else {
       return 1 * direction;
     }
   }
-  displayList(sortedList);
+  return sortedList;
 }
 
 function displayList(students) {
