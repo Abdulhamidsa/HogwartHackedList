@@ -5,14 +5,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Animalbase</title>
+  <title>HOGWART PROJECT</title>
   <link rel="stylesheet" href="style.css">
   <script src="hogwart_project.js" defer></script>
 
 </head>
 
 <body id="body">
-  <div id="overlay_body"></div>
+
+  <button class="hack">Download students data (hehe)</button>
+  <div id="overlay_body">
+
+  </div>
   <div class="head">
     <img src="./images/website_imgs/hogwarts-logo.png" alt="">
   </div>
@@ -22,9 +26,10 @@
     <p class="hufflepuff"></p>
     <p class="girl"></p>
     <p class="boy"></p>
-
-    <p class="all"></p>
     <p class="squad"></p>
+    <p class="notExpeled"></p>
+    <p class="isExpeled"></p>
+    <p class="all"></p>
   </div>
 
   <hr>
@@ -35,13 +40,17 @@
       <thead>
         <p>
           Filter:
-          <button class="filters" data-action="filter" data-filter="Slytherin">Slytherin</button>
+          <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button>
           <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
           <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button>
           <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button>
           <button class="filter" data-action="filter" data-filter="Girl">Girls</button>
           <button class="filter" data-action="filter" data-filter="Boy">Boys</button>
           <button class="filter" data-action="filter" data-filter="isSquad">isSquad</button>
+          <button class="filter" data-action="filter" data-filter="isExpeled">is expelled</button>
+          <button class="filter" data-action="filter" data-filter="notExpeled">not expeled</button>
+
+
           <button class="filter" data-action="filter" data-filter="All">all</button>
         </p>
         <tr id="sorting">
@@ -67,15 +76,13 @@
     <span> &#10539; </span>
 
     <div class="popUp_imgs">
-      <img class="house_logo" src="images/website_imgs/hogwarts-logo.png" alt="">
+      <img class="house_logo" src="" alt="">
       <img class="student_img" src="images/abbott_h.png" alt="">
-      <img class="house_logo" src="images/website_imgs/hogwarts-logo.png" alt="">
+      <img class="house_logo" src="" alt="">
 
     </div>
-    <h2>sanmer abo 3arsa</h2>
-
+    <h2></h2>
     <div class="popUp_info">
-
       <p>Firstname</p>
       <p class="firstName"></p>
       <p>Middlename</p>
@@ -89,41 +96,36 @@
       <p>Member Of The Inquisitorial Squad</p>
       <p class="isSquadMember"></p>
       <p>Expeled</p>
-      <p>not</p>
+      <p class="is_expeled">not</p>
       <p>Prefect</p>
       <p>Not Prefect</p>
     </div>
     <div class="popUp_btns">
-      <button>Expele</button>
+      <!--       <button class="expelebtn">Expele</button>
+ -->
     </div>
   </div>
 
   <div id="popUp_return_box">
     <p></p>
     <button class="accept_btn"></button>
-    <!--     <button class="escape_btn"></button>
- -->
+  </div>
+  <div id="popUp_hacked_return_box">
+    <p></p>
+    <button class="accept_btn"></button>
   </div>
 
-
   <template id="student">
-    <!--   <tr>
-      <td data-field="star">☆</td>
-      <td data-field="firstname">NAME</td>
-      <td data-field="middlename">DESCRIPTION</td>
-      <td data-field="lastname">DESCRIPTION</td>
-
-      <td data-field="house">house</td>
-      <td data-field="gender">gender</td>
-      <img class="img" src="" alt="">
-    </tr> -->
     <div id="container">
+
+      <span class="arrow_up arrows">🞁</span>
       <span class="isSquad"></span>
       <div class="overlay">
+        <span class="arrow_down arrows">🞁</span>
         <div class="popUp_btns">
           <button class="squadMember">Add to Inq Squad</button>
-          <button class="student_info">student's info</button>
-
+          <button class="expele">Expelle</button>
+          <button class="student_info ">Student Info</button>
         </div>
       </div>
       <div>

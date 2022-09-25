@@ -3,6 +3,9 @@
   padding: 0;
   margin: 0;
 }
+
+:root {
+}
 /* SCROOL BAR */
 /* width */
 ::-webkit-scrollbar {
@@ -29,6 +32,7 @@
   display: none;
 }
 body {
+  background-color: #320909;
   background-image: url(images/website_imgs/classroom.png);
   background-repeat: repeat;
 }
@@ -92,6 +96,8 @@ body {
 }
 
 #popUp_return_box {
+  background-size: contain;
+  background-repeat: no-repeat;
   position: fixed;
   width: 450px;
   height: 200px;
@@ -101,16 +107,51 @@ body {
   margin-left: -225px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  align-items: flex-end;
   text-align: center;
-  background-color: rgb(38, 76, 76);
+  background-color: #b88b67;
   border-radius: 15px;
   opacity: 0;
   z-index: 60;
   display: none;
+  font-family: "Courier New", Courier, monospace;
 }
+
+#popUp_hacked_return_box {
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 40px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px; /* Negative half of height. */
+  margin-left: -225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  align-items: flex-end;
+  text-align: center;
+  background-color: #b88b67;
+  border-radius: 15px;
+  opacity: 0;
+  z-index: 60;
+  display: none;
+  font-family: "Courier New", Courier, monospace;
+}
+
 #popUp_return_box .accept_btn {
+  color: black;
+  margin-right: 3.5rem;
+}
+#popUp_return_box p {
+  width: 65%;
+  color: black;
+}
+#popUp_return_box {
 }
 
 .sortBy[data-sort-direction="asc"]::after {
@@ -132,6 +173,7 @@ h2 {
   color: wheat;
   text-align: center;
   font-size: 0.8rem;
+  padding-left: 1rem;
 }
 #container {
   position: relative;
@@ -141,7 +183,6 @@ h2 {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
   width: 40ch;
   height: 20vh;
 }
@@ -153,14 +194,14 @@ h2 {
 #popUp {
   position: fixed;
   width: 600px;
-  height: 500px;
+  height: 550px;
   top: 50%;
   left: 50%;
-  margin-top: -250px; /* Negative half of height. */
+  margin-top: -275px; /* Negative half of height. */
   margin-left: -300px;
   display: flex;
   flex-direction: column;
-  background-color: rgb(38, 76, 76);
+  background-color: #1f3d4d;
   border-radius: 15px;
   display: none;
   z-index: 60;
@@ -185,7 +226,7 @@ h2 {
 .popUp_imgs {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .popUp_info {
   display: grid;
@@ -194,7 +235,10 @@ h2 {
 }
 #popUp h2 {
   font-size: 1.7rem;
+  margin: 1rem;
+  font-family: "Courier New", Courier, monospace;
 }
+
 #popUp p {
   border: 0.5px solid rgba(0, 0, 0, 0.454);
   padding: 0.3rem;
@@ -202,8 +246,11 @@ h2 {
 .popUp_btns {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  gap: 0.5rem;
 }
 .popUp_btns button,
 #popUp_return_box button {
@@ -212,6 +259,7 @@ h2 {
   border: 1px black solid;
   border-radius: 8px;
   cursor: pointer;
+  color: white;
 }
 /* .popUp_btns button:hover {
   border: 2px inset black;
@@ -224,15 +272,15 @@ h2 {
   gap: 1rem;
 }
 .popUp_btns :nth-child(1) {
-  color: white;
   background-color: #1b5430;
 }
-.popUp_btns :nth-child(1):hover {
-  color: white;
-}
+
 .popUp_btns :nth-child(2) {
-  color: white;
-  background-color: #1b5430;
+  background-color: rgb(203, 14, 14);
+}
+.popUp_btns :nth-child(3) {
+  background-color: white;
+  color: black;
 }
 
 /* POPUP */
@@ -249,18 +297,31 @@ h2 {
   align-items: center;
   justify-content: center;
 }
+.arrows {
+  position: absolute;
+  left: 50%;
+  bottom: -10%;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.arrow_down {
+  transform: rotate(180deg);
+  bottom: -2%;
+}
+
 #container:hover .overlay {
-  transition: 200ms ease-in;
-  top: 30%;
+  transition: 250ms ease-in;
   background-color: rgba(0, 0, 0, 0.968);
+  top: 0;
 }
 
 .isSquad {
   position: absolute;
-  font-size: 2rem;
-
-  top: 0%;
-  right: 0;
+  font-size: 3rem;
+  left: 10%;
+  top: 60%;
+  transform: skew(-0.04turn, 1deg);
 }
 
 .isSquad::after {
