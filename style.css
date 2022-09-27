@@ -34,7 +34,8 @@
 body {
   background-color: #320909;
   background-image: url(images/website_imgs/classroom.png);
-  background-repeat: repeat;
+  background-repeat: no-repeat repeat;
+  overflow: hidden;
 }
 #overlay_body {
   width: 100%;
@@ -42,7 +43,6 @@ body {
   opacity: 0;
   z-index: 0;
   display: none;
-
   position: absolute;
   background-color: rgba(1, 4, 7, 0.637);
 }
@@ -54,16 +54,15 @@ body {
 .head img {
   width: 10%;
 }
-#sorting th.sortby {
+#sorting button.sortby {
   text-decoration: underline;
 }
-#sorting th {
+#sorting button {
   padding: 0.5rem;
   background-color: #ffffff;
   color: black;
   border: 1px solid black;
   cursor: pointer;
-  width: 110px;
 }
 #list {
   border-collapse: collapse;
@@ -75,11 +74,20 @@ body {
 #sorting {
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
-  gap: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5rem;
   color: white;
   border: 1px solid black;
   width: 100%;
+}
+#filtering {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: fixed;
+  right: 15%;
 }
 
 .hidden {
@@ -123,24 +131,27 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
-  width: 40px;
-  height: 200px;
+  width: 600px;
+  height: 250px;
   top: 50%;
   left: 50%;
-  margin-top: -100px; /* Negative half of height. */
-  margin-left: -225px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 2rem;
-  align-items: flex-end;
-  text-align: center;
-  background-color: #b88b67;
+  margin-top: -125px; /* Negative half of height. */
+  margin-left: -300px;
+  background-color: #e7dcd4;
   border-radius: 15px;
   opacity: 0;
   z-index: 60;
   display: none;
   font-family: "Courier New", Courier, monospace;
+}
+#popUp_hacked_return_box :only-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  margin-left: 8rem;
 }
 
 #popUp_return_box .accept_btn {
@@ -151,8 +162,6 @@ body {
   width: 65%;
   color: black;
 }
-#popUp_return_box {
-}
 
 .sortBy[data-sort-direction="asc"]::after {
   content: "\2193";
@@ -160,14 +169,34 @@ body {
 .sortBy[data-sort-direction="desc"]::after {
   content: "\2191";
 }
-#list tbody {
+.s {
+  overflow: auto;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+#side {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  position: absolute;
+}
+#list {
   background-color: rgba(100, 60, 15, 0.185);
   padding: 1rem;
   gap: 2rem;
-  flex-wrap: wrap;
+  /*   flex-wrap: wrap;
+ */
   width: 100%;
-  display: flex;
+  display: grid;
   justify-content: center;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 }
 h2 {
   color: wheat;
@@ -274,13 +303,23 @@ h2 {
 .popUp_btns :nth-child(1) {
   background-color: #1b5430;
 }
-
 .popUp_btns :nth-child(2) {
+  color: black;
+}
+
+.popUp_btns :nth-child(3) {
   background-color: rgb(203, 14, 14);
 }
-.popUp_btns :nth-child(3) {
-  background-color: white;
-  color: black;
+.student_info {
+  position: absolute;
+  right: 5%;
+  top: 5%;
+  width: 28px;
+  font-size: 1.3rem;
+  border-radius: 100%;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
 }
 
 /* POPUP */
@@ -326,4 +365,36 @@ h2 {
 
 .isSquad::after {
   content: "";
+}
+
+.prefect {
+  position: absolute;
+  left: 85%;
+  top: 0;
+  font-size: 2rem;
+}
+
+#remove_aorb {
+  position: fixed;
+  width: 250px;
+  height: 150px;
+  padding: 1rem;
+  top: 50%;
+  right: 50%;
+  background-color: #1b5430;
+  visibility: hidden;
+}
+
+.search_error_modal {
+  position: absolute;
+  font-size: 4rem;
+  top: 60%;
+  right: 70%;
+  width: 250px;
+  height: 250px;
+  margin-top: -125px;
+  margin-left: -125px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  display: none;
 }

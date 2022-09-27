@@ -2,39 +2,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>HOGWART PROJECT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HOGWART SCHOOL</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animation.css">
   <script src="hogwart_project.js" defer></script>
 
 </head>
 
 <body id="body">
-
-  <button class="hack">Download students data (hehe)</button>
-  <div id="overlay_body">
-
-  </div>
+  <div id="overlay_body"></div>
   <div class="head">
     <img src="./images/website_imgs/hogwarts-logo.png" alt="">
   </div>
-  <div class="view_number_of_fil_st">
-    <p class="gryffindor"></p>
-    <p class="slytherin"></p>
-    <p class="hufflepuff"></p>
-    <p class="girl"></p>
-    <p class="boy"></p>
-    <p class="squad"></p>
-    <p class="notExpeled"></p>
-    <p class="isExpeled"></p>
-    <p class="all"></p>
+
+  <div class="search_container">
+    <input type="text" name="search_bar" id="search_bar" placeholder="search for a student">
   </div>
 
-  <hr>
 
-  <table id="list">
+
+
+
+
+  <div class="s">
+    <div>
+      <div id="sorting">
+        <p data-action="sort" data-sort-direction="desc" data-sort="prefect">isSquad</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="house">house</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="gender">gender</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="*"></p>
+      </div>
+      <span class="search_error_modal">student not found! 🥴</span>
+
+      <div id="list"></div>
+    </div>
+
+
+    <div id="filtering">
+      <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button>
+      <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
+      <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button>
+      <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button>
+      <button class="filter" data-action="filter" data-filter="Girl">Girls</button>
+      <button class="filter" data-action="filter" data-filter="Boy">Boys</button>
+      <button class="filter" data-action="filter" data-filter="isSquad">isSquad</button>
+      <button class="filter" data-action="filter" data-filter="isExpeled">is expelled</button>
+      <button class="filter" data-action="filter" data-filter="notExpeled">not expeled</button>
+    </div>
+
+
+  </div>
+
+
+
+  <!--  <table id="list">
     <div class="sortAndFilter">
 
       <thead>
@@ -54,7 +81,7 @@
           <button class="filter" data-action="filter" data-filter="All">all</button>
         </p>
         <tr id="sorting">
-          <th data-action="sort" data-sort-direction="desc" data-sort="star">isSquad</th>
+          <th data-action="sort" data-sort-direction="desc" data-sort="prefect">isSquad</th>
           <th data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</th>
           <th data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</th>
           <th data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</th>
@@ -66,7 +93,18 @@
       <tbody>
     </div>
   </table>
-
+ -->
+  <div class="view_number_of_fil_st">
+    <p class="gryffindor"></p>
+    <p class="slytherin"></p>
+    <p class="hufflepuff"></p>
+    <p class="girl"></p>
+    <p class="boy"></p>
+    <p class="squad"></p>
+    <p class="notExpeled"></p>
+    <p class="isExpeled"></p>
+    <p class="all"></p>
+  </div>
   <div class="container">
     <img src="" alt="">
     <h1></h1>
@@ -101,8 +139,6 @@
       <p>Not Prefect</p>
     </div>
     <div class="popUp_btns">
-      <!--       <button class="expelebtn">Expele</button>
- -->
     </div>
   </div>
 
@@ -110,9 +146,13 @@
     <p></p>
     <button class="accept_btn"></button>
   </div>
+
+
   <div id="popUp_hacked_return_box">
-    <p></p>
-    <button class="accept_btn"></button>
+    <div>
+      <p></p>
+      <button class="accept_hacked_btn"></button>
+    </div>
   </div>
 
   <template id="student">
@@ -120,12 +160,17 @@
 
       <span class="arrow_up arrows">🞁</span>
       <span class="isSquad"></span>
+      <span class="prefect"></span>
+
       <div class="overlay">
         <span class="arrow_down arrows">🞁</span>
         <div class="popUp_btns">
           <button class="squadMember">Add to Inq Squad</button>
+          <button class="prefect_member">Make Prefect</button>
           <button class="expele">Expelle</button>
-          <button class="student_info ">Student Info</button>
+
+          <span class="student_info ">ℹ</span>
+
         </div>
       </div>
       <div>
@@ -135,9 +180,23 @@
 
     </div>
   </template>
-  <section></section>
 
 
+  <div id="remove_aorb" class="modal">
+    <div class="dialog">
+      <button class="closebutton">x</button>
+      <h1>warning</h1>
+      <p>there can not be more than two prefects <br> do you want to delete one of the exicting prefectes</p>
+      <div class="sidebyside">
+        <button id="removea">remove A</button>
+        <button id="removeb">remove B</button>
+      </div>
+    </div>
+  </div>
+  <div></div>
+
+
+  <button class="hack">Download students data (hehe)</button>
 
 
 </body>
