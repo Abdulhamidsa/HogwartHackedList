@@ -18,9 +18,7 @@
     <img src="./images/website_imgs/hogwarts-logo.png" alt="">
   </div>
 
-  <div class="search_container">
-    <input type="text" name="search_bar" id="search_bar" placeholder="search for a student">
-  </div>
+
 
 
 
@@ -28,22 +26,20 @@
 
 
   <div class="s">
-    <div>
-      <div id="sorting">
-        <p data-action="sort" data-sort-direction="desc" data-sort="prefect">isSquad</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="house">house</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="gender">gender</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="*"></p>
-      </div>
-      <span class="search_error_modal">student not found! 🥴</span>
-
-      <div id="list"></div>
+    <div class="view_number_of_fil_st">
+      <p class="gryffindor"></p>
+      <p class="slytherin"></p>
+      <p class="hufflepuff"></p>
+      <p class="girl"></p>
+      <p class="boy"></p>
+      <p class="squad"></p>
+      <p class="notExpeled"></p>
+      <p class="isExpeled"></p>
+      <p class="all"></p>
     </div>
-
-
+    <div class="search_container">search: <input type="text" name="search_bar" id="search_bar"
+        placeholder="search for a student">
+    </div>
     <div id="filtering">
       <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button>
       <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
@@ -55,8 +51,19 @@
       <button class="filter" data-action="filter" data-filter="isExpeled">is expelled</button>
       <button class="filter" data-action="filter" data-filter="notExpeled">not expeled</button>
     </div>
-
-
+    <div id="sorting">
+      <p data-action="sort" data-sort-direction="desc" data-sort="prefect">isSquad</p>
+      <p data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</p>
+      <p data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</p>
+      <p data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</p>
+      <p data-action="sort" data-sort-direction="desc" data-sort="house">house</p>
+      <p data-action="sort" data-sort-direction="desc" data-sort="gender">gender</p>
+      <p data-action="sort" data-sort-direction="desc" data-sort="*"></p>
+    </div>
+    <span class="search_error_modal">student not found 🥴</span>
+    <div class="list">
+      <div id="list"></div>
+    </div>
   </div>
 
 
@@ -94,17 +101,7 @@
     </div>
   </table>
  -->
-  <div class="view_number_of_fil_st">
-    <p class="gryffindor"></p>
-    <p class="slytherin"></p>
-    <p class="hufflepuff"></p>
-    <p class="girl"></p>
-    <p class="boy"></p>
-    <p class="squad"></p>
-    <p class="notExpeled"></p>
-    <p class="isExpeled"></p>
-    <p class="all"></p>
-  </div>
+
   <div class="container">
     <img src="" alt="">
     <h1></h1>
