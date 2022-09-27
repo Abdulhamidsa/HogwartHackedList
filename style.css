@@ -392,12 +392,11 @@
   .search_error_modal {
     position: absolute;
     font-size: 4rem;
-    top: 70%;
-    right: 25%;
-    width: 900px;
-    height: 250px;
-    margin-top: -125px;
-    margin-left: -250px;
+    top: 90%;
+    width: fit-content;
+    height: 350px;
+    margin-top: -175px;
+    margin-left: -125px;
     font-family: "Courier New", Courier, monospace;
     color: white;
     display: none;

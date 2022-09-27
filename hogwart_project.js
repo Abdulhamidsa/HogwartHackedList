@@ -100,7 +100,7 @@ function prepareObject(students) {
     student.middlename = nameClean[1];
   }
   if (nameClean.length >= 2) {
-    student.image = `./images/${student.lastname}_${student.firstname.substring(0, 1).toLowerCase()}.png`;
+    student.image = `./images/${student.lastname.toLowerCase()}_${student.firstname.substring(0, 1).toLowerCase()}.png`;
   }
   if (student.firstname === "Parvati") {
     student.image = `./images/${student.lastname}_${student.firstname.toLowerCase()}.png`;
@@ -526,7 +526,7 @@ function openPopUpReturnBox() {
   document.querySelector("#overlay_body").style.zIndex = "60";
   document.querySelector("#popUp_return_box").style.display = "flex";
   document.querySelector(".accept_btn").textContent = "Understood , Sorry";
-  document.querySelector("#popUp_return_box").style.backgroundImage = "url(/images/website_imgs/angry_man.png)";
+  document.querySelector("#popUp_return_box").style.backgroundImage = "url(./images/website_imgs/angry_man.png)";
 
   document.querySelector("#popUp_return_box p").textContent = "Only Students From Slytherin house and students who hold pure-blood status can be assigned!!!!";
 }
@@ -539,7 +539,7 @@ function openHackedPopUpReturnBox() {
   document.querySelector("#overlay_body").style.zIndex = "60";
   document.querySelector("#popUp_hacked_return_box").style.display = "flex";
   document.querySelector("#popUp_hacked_return_box p").textContent = "TF YOU THINK YOU ARE DOING???";
-  document.querySelector("#popUp_hacked_return_box").style.backgroundImage = "url(/images/website_imgs/angry_police.png)";
+  document.querySelector("#popUp_hacked_return_box").style.backgroundImage = "url(./images/website_imgs/angry_police.png)";
   document.querySelector(".accept_hacked_btn").textContent = "SORRY";
   document.querySelector(".accept_hacked_btn").classList.add("blink");
 
