@@ -13,8 +13,16 @@
 </head>
 
 <body id="body">
+  <video playsinline autoplay muted loop poster="" id="video">
+    <source src="./images/Hell.mp4" type="video/mp4">
+  </video>
+
+
+
   <div id="overlay_body"></div>
   <div class="head">
+    <img src="./images/website_imgs/hogwarts-logo.png" alt="">
+    <h1>HOGWARTS SCHOOL</h1>
     <img src="./images/website_imgs/hogwarts-logo.png" alt="">
   </div>
 
@@ -27,43 +35,76 @@
 
   <div class="s">
     <div class="view_number_of_fil_st">
-      <p class="gryffindor"></p>
-      <p class="slytherin"></p>
-      <p class="hufflepuff"></p>
-      <p class="girl"></p>
-      <p class="boy"></p>
-      <p class="squad"></p>
-      <p class="notExpeled"></p>
-      <p class="isExpeled"></p>
-      <p class="all"></p>
+      <span>Number of students in each category</span>
+      <div class="numbers">
+        <div>
+          <p>Gryffindor</p>
+          <p class="gryffindor"></p>
+        </div>
+        <div>
+          <p>Slytherin</p>
+          <p class="slytherin"></p>
+        </div>
+        <div>
+          <p>Hufflepuff</p>
+          <p class="hufflepuff"></p>
+        </div>
+
+        <div>
+          <p>Squad <br></p>
+          <p class="squad"></p>
+        </div>
+        <div>
+          <p>Not Expeled</p>
+          <p class="notExpeled"></p>
+        </div>
+        <div>
+          <p>Is Expeled</p>
+          <p class="isExpeled"></p>
+        </div>
+        <div>
+          <p>All</p>
+          <p class="all"></p>
+        </div>
+      </div>
     </div>
-    <div class="search_container">search: <input type="text" name="search_bar" id="search_bar"
-        placeholder="search for a student">
-    </div>
+
     <div id="filtering">
-      <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button>
-      <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
-      <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button>
-      <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button>
-      <button class="filter" data-action="filter" data-filter="Girl">Girls</button>
-      <button class="filter" data-action="filter" data-filter="Boy">Boys</button>
-      <button class="filter" data-action="filter" data-filter="isSquad">isSquad</button>
-      <button class="filter" data-action="filter" data-filter="isExpeled">is expelled</button>
-      <button class="filter" data-action="filter" data-filter="notExpeled">not expeled</button>
+      <div class="filter"> Filter by category</div>
+      <div>
+        <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button>
+        <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
+        <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button>
+        <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button>
+        <button class="filter" data-action="filter" data-filter="Girl">Girls</button>
+        <button class="filter" data-action="filter" data-filter="Boy">Boys</button>
+        <button class="filter" data-action="filter" data-filter="isSquad">isSquad</button>
+        <button class="filter" data-action="filter" data-filter="isExpeled">is expelled</button>
+        <button class="filter" data-action="filter" data-filter="notExpeled">not expeled</button>
+        <button class="filter" data-action="filter" data-filter="All">All</button>
+      </div>
     </div>
-    <div id="sorting">
-      <p data-action="sort" data-sort-direction="desc" data-sort="prefect">isSquad</p>
-      <p data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</p>
-      <p data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</p>
-      <p data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</p>
-      <p data-action="sort" data-sort-direction="desc" data-sort="house">house</p>
-      <p data-action="sort" data-sort-direction="desc" data-sort="gender">gender</p>
-      <p data-action="sort" data-sort-direction="desc" data-sort="*"></p>
+    <div class="sort_and_search">
+      <div id="sorting"> Sort by ↑↓
+        <p data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="house">house</p>
+        <p data-action="sort" data-sort-direction="desc" data-sort="gender">gender</p>
+        <!--     <p data-action="sort" data-sort-direction="desc" data-sort="prefect">inq squad</p> -->
+        <!--      <p data-action="sort" data-sort-direction="desc" data-sort="*"></p> -->
+      </div>
+      <div class="search_container"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-search" viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+        </svg> <input type="text" name="search_bar" id="search_bar" placeholder="search students .. ">
+      </div>
     </div>
-    <span class="search_error_modal">student not found 🥴</span>
     <div class="list">
       <div id="list"></div>
-    </div>
+    </div> <span class="search_error_modal">student not found 🥴</span>
+
   </div>
 
 
@@ -111,9 +152,9 @@
     <span> &#10539; </span>
 
     <div class="popUp_imgs">
-      <img class="house_logo" src="" alt="">
-      <img class="student_img" src="images/abbott_h.png" alt="">
-      <img class="house_logo" src="" alt="">
+      <img class="house_logo" src="" alt="house_img">
+      <img class="student_img" src="" alt="student_img">
+      <img class="house_logo" src="" alt="house_img">
 
     </div>
     <h2></h2>
@@ -154,6 +195,7 @@
 
   <template id="student">
     <div id="container">
+      <span class="dead hidden">🞭</span>
 
       <span class="arrow_up arrows">🞁</span>
       <span class="isSquad"></span>
@@ -181,8 +223,8 @@
 
   <div id="remove_aorb" class="modal">
     <div class="dialog">
-      <button class="closebutton">x</button>
-      <h1>warning</h1>
+      <button class="closebutton"> &#10539;
+      </button>
       <p>there can not be more than two prefects <br> do you want to delete one of the exicting prefectes</p>
       <div class="sidebyside">
         <button id="removea">remove A</button>
