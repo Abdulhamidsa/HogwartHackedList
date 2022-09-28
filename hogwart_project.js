@@ -67,7 +67,6 @@ function allBtns() {
   document.querySelectorAll("#sorting [data-action=sort]").forEach((button) => button.addEventListener("click", selectSort));
   document.querySelectorAll("[data-action=filter]").forEach((button) => button.addEventListener("click", selectFilter));
   document.querySelector(".hack").addEventListener("click", hackTheSytem);
-  document.querySelector(".accept_btn").addEventListener("click", closePopUpReturnBox);
   searchBar.addEventListener("keyup", searchingBar);
 }
 ////////////////////////// CREATE THE NEW OPJECT AND CLEAN THE DATA ////////////////////////////
@@ -286,6 +285,7 @@ function setSort(sortBy, sortDir) {
   buildList();
 }
 function sortList(sortedList) {
+  document.querySelector(".live_count").textContent = sortedList.length;
   let direction = 1;
   if (settings.sortDir === "desc") {
     direction = 1;
@@ -315,7 +315,6 @@ function displaystudent(student) {
   const clone = document.querySelector("template#student").content.cloneNode(true);
   clone.querySelector("h2").textContent = student.firstname + " " + student.middlename + " " + student.lastname;
   clone.querySelector("img").src = student.image;
-  document.querySelector("#removea").textContent = student.firstname;
 
   //////////////// INQ SQUAD ////////////////
   if (student.isSquad === true) {
@@ -525,6 +524,11 @@ function displaystudent(student) {
     } else {
       document.querySelector(".is_expeled").textContent = "Enrolled";
     }
+    if (student.prefect === true) {
+      document.querySelector(".is_prefect").textContent = "Is a member";
+    } else {
+      document.querySelector(".is_prefect").textContent = "Not a member";
+    }
     //////////////// CLOSE POP UP ////////////////
     document.querySelector("#popUp span").addEventListener("click", closePopUP);
   });
@@ -538,6 +542,7 @@ function closePopUP() {
   document.querySelector("#overlay_body").style.opacity = "0";
   document.querySelector("#overlay_body").style.display = "none";
 }
+document.querySelector(".accept_btn").addEventListener("click", closePopUpReturnBox);
 function openPopUpReturnBox() {
   document.querySelector("#body").style.overflow = "hidden";
   document.querySelector("#overlay_body").style.display = "block";
@@ -585,25 +590,38 @@ function closeHackedPopUpReturnBox() {
 function tryToMakePrefect(selectedStudent) {
   const prefects = allStudent.filter((student) => student.prefect && student.house === selectedStudent.house);
   const numberOfprefects = prefects.length;
+
   if (numberOfprefects >= 2) {
-    /*     console.log("there can only be two prefect of each house");
-     */ removeAorB(prefects[0], prefects[1]);
+    removeAorB(prefects[0], prefects[1]);
+    /*     console.log(prefects[0]);
+    console.log(numberOfprefects);
+ */
   } else {
     makeprefect(selectedStudent);
   }
 
   function removeAorB(prefectA, prefectB) {
-    document.querySelector("#removea").textContent = student.firstname;
+    document.querySelector("#removea").textContent = "Remove" + " " + prefectA.firstname + " ? ";
+    document.querySelector("#removeb").textContent = "Remove " + " " + prefectB.firstname + " ? ";
 
     document.querySelector("#remove_aorb").style.display = "flex";
     document.querySelector("#remove_aorb").style.opacity = "1";
+    document.querySelector("#body").style.overflow = "hidden";
+    document.querySelector("#overlay_body").style.display = "block";
+    document.querySelector("#overlay_body").style.opacity = "1";
+    document.querySelector("#overlay_body").style.zIndex = "60";
 
     document.querySelector("#remove_aorb .closebutton").addEventListener("click", closeDialog);
     document.querySelector("#remove_aorb #removea").addEventListener("click", clickRemoveA);
     document.querySelector("#remove_aorb #removeb").addEventListener("click", clickRemoveB);
+
     function closeDialog() {
       document.querySelector("#remove_aorb").style.display = "none";
       document.querySelector("#remove_aorb").style.opacity = "0";
+
+      document.querySelector("#body").style.overflow = "visible";
+      document.querySelector("#overlay_body").style.zIndex = "0";
+      document.querySelector("#overlay_body").style.display = "none";
       document.querySelector("#remove_aorb .closebutton").addEventListener("click", closeDialog);
 
       document.querySelector("#remove_aorb #removea").removeEventListener("click", clickRemoveA);

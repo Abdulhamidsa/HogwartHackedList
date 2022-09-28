@@ -66,6 +66,10 @@
           <p>All</p>
           <p class="all"></p>
         </div>
+        <div>
+          <p>nr of student on display</p>
+          <p class="live_count"></p>
+        </div>
       </div>
     </div>
 
@@ -91,8 +95,6 @@
         <p data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</p>
         <p data-action="sort" data-sort-direction="desc" data-sort="house">house</p>
         <p data-action="sort" data-sort-direction="desc" data-sort="gender">gender</p>
-        <!--     <p data-action="sort" data-sort-direction="desc" data-sort="prefect">inq squad</p> -->
-        <!--      <p data-action="sort" data-sort-direction="desc" data-sort="*"></p> -->
       </div>
       <div class="search_container"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
           class="bi bi-search" viewBox="0 0 16 16">
@@ -109,39 +111,6 @@
 
 
 
-  <!--  <table id="list">
-    <div class="sortAndFilter">
-
-      <thead>
-        <p>
-          Filter:
-          <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button>
-          <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
-          <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button>
-          <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button>
-          <button class="filter" data-action="filter" data-filter="Girl">Girls</button>
-          <button class="filter" data-action="filter" data-filter="Boy">Boys</button>
-          <button class="filter" data-action="filter" data-filter="isSquad">isSquad</button>
-          <button class="filter" data-action="filter" data-filter="isExpeled">is expelled</button>
-          <button class="filter" data-action="filter" data-filter="notExpeled">not expeled</button>
-
-
-          <button class="filter" data-action="filter" data-filter="All">all</button>
-        </p>
-        <tr id="sorting">
-          <th data-action="sort" data-sort-direction="desc" data-sort="prefect">isSquad</th>
-          <th data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</th>
-          <th data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</th>
-          <th data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</th>
-          <th data-action="sort" data-sort-direction="desc" data-sort="house">house</th>
-          <th data-action="sort" data-sort-direction="desc" data-sort="gender">gender</th>
-          <th data-action="sort" data-sort-direction="desc" data-sort="*"></th>
-        </tr>
-      </thead>
-      <tbody>
-    </div>
-  </table>
- -->
 
   <div class="container">
     <img src="" alt="">
@@ -171,10 +140,10 @@
       <p class="bloodType"></p>
       <p>Member Of The Inquisitorial Squad</p>
       <p class="isSquadMember"></p>
-      <p>Expeled</p>
-      <p class="is_expeled">not</p>
-      <p>Prefect</p>
-      <p>Not Prefect</p>
+      <p>Student's Status</p>
+      <p class="is_expeled"></p>
+      <p>Prefect member</p>
+      <p class="is_prefect"></p>
     </div>
     <div class="popUp_btns">
     </div>
@@ -221,14 +190,19 @@
   </template>
 
 
+
+
+
+
   <div id="remove_aorb" class="modal">
     <div class="dialog">
       <button class="closebutton"> &#10539;
       </button>
-      <p>there can not be more than two prefects <br> do you want to delete one of the exicting prefectes</p>
+      <p>there can not be more than two prefects from the same house !! do you want to delete one of the exicting
+        prefectes</p>
       <div class="sidebyside">
-        <button id="removea">remove A</button>
-        <button id="removeb">remove B</button>
+        <button id="removea">remove <span class="prefect1">A</span></button>
+        <button id="removeb">remove <span class="prefect2">B</span></button>
       </div>
     </div>
   </div>
