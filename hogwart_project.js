@@ -103,7 +103,7 @@ function prepareObject(students) {
     student.image = `./images/${student.lastname.toLowerCase()}_${student.firstname.substring(0, 1).toLowerCase()}.png`;
   }
   if (student.firstname === "Parvati") {
-    student.image = `./images/${student.lastname}_${student.firstname.toLowerCase()}.png`;
+    student.image = `./images/${student.lastname.toLowerCase()}_${student.firstname.toLowerCase()}.png`;
   }
   if (student.firstname === "Justin") {
     student.image = `./images/${student.lastname.toString().substring(6)}_${student.firstname.substring(0, 1).toLowerCase()}.png`;
@@ -172,7 +172,7 @@ function filterList(filteredArray) {
   if (settings.filtering === "Slytherin") {
     filteredArray = allStudent.filter(fromSlytherin);
   } else if (settings.filtering === "Hufflepuff") {
-    filteredArray = allStudent.filter(fromÆHufflepuff);
+    filteredArray = allStudent.filter(fromHufflepuff);
   } else if (settings.filtering === "Ravenclaw") {
     filteredArray = allStudent.filter(fromRavenclaw);
   } else if (settings.filtering === "Gryffindor") {
@@ -231,10 +231,6 @@ function filterList(filteredArray) {
     if (obj.isExpeled === true) expeled++;
     document.querySelector(".isExpeled").textContent = " " + expeled;
   }
-  /*  for (let obj of allStudent) {
-    if (obj.isExpeled !== true) squad++;
-    document.querySelector(".notExpeled").textContent = " " + squad;
-  } */
   return filteredArray;
 }
 function fromSlytherin(allStudent) {
