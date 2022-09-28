@@ -117,8 +117,7 @@ function prepareObject(students) {
 ////////////////////////// CALCULATING BLOODTYPES ////////////////////////////
 
 function getBloodStatus(student) {
-  /*   console.log("dont fuck with");
-   */ if (bloodType.pure.includes(student.lastname))
+  if (bloodType.pure.includes(student.lastname))
     if (bloodType.half.includes(student.lastname)) {
       return "PURE (MIXED with MUGGLES)";
     }
@@ -593,9 +592,6 @@ function tryToMakePrefect(selectedStudent) {
 
   if (numberOfprefects >= 2) {
     removeAorB(prefects[0], prefects[1]);
-    /*     console.log(prefects[0]);
-    console.log(numberOfprefects);
- */
   } else {
     makeprefect(selectedStudent);
   }
@@ -603,7 +599,6 @@ function tryToMakePrefect(selectedStudent) {
   function removeAorB(prefectA, prefectB) {
     document.querySelector("#removea").textContent = "Remove" + " " + prefectA.firstname + " ? ";
     document.querySelector("#removeb").textContent = "Remove " + " " + prefectB.firstname + " ? ";
-
     document.querySelector("#remove_aorb").style.display = "flex";
     document.querySelector("#remove_aorb").style.opacity = "1";
     document.querySelector("#body").style.overflow = "hidden";
@@ -652,13 +647,11 @@ function tryToMakePrefect(selectedStudent) {
 ////////// HACK THE SYSTYM ///////
 function hackTheSytem() {
   systemIsHacked = !systemIsHacked;
-  /*   console.log(systemIsHacked);
-   */ addHacker();
+  addHacker();
   hackingTheBody();
   allStudent.forEach(fuckWithBloodTypes);
 }
-/* console.log(systemIsHacked);
- */
+
 function addHacker() {
   if (systemIsHacked === systemIsHacked) {
     allStudent.unshift(addedStudent);
@@ -666,8 +659,6 @@ function addHacker() {
     displayList(allStudent);
     buildList();
   }
-  /*   console.log(allStudent);
-   */
 }
 ////////////////////////// EDIT THE BLOOD STATUS AFTER THE HACK ////////////////////////////
 
@@ -687,6 +678,7 @@ function fuckWithBloodTypes(student) {
 function hackingTheBody() {
   const video = document.querySelector("#video");
   const logo = document.querySelector(".head img");
+  document.querySelector(".hack").style.display = "none";
   video.style.display = "block";
   logo.style = "transform: rotate(180deg)";
 }
