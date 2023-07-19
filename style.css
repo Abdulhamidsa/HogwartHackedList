@@ -325,7 +325,7 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
+  display: none;
   flex-direction: column;
   background-color: #1f3d4d;
   border-radius: 15px;
