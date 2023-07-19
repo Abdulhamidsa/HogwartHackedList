@@ -623,7 +623,7 @@ h2 {
   /* background-color: red; */
 }
 
-@media (max-width: 350px) {
+@media (max-width: 650px) {
   #container {
     max-width: 250px;
   }
