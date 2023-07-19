@@ -73,43 +73,53 @@
       </div>
     </div>
 
-    <div id="filtering">
-      <div class="filter"> Filter by category</div>
-      <div>
-        <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button>
-        <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button>
-        <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button>
-        <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button>
-        <button class="filter" data-action="filter" data-filter="Girl">Girls</button>
-        <button class="filter" data-action="filter" data-filter="Boy">Boys</button>
-        <button class="filter" data-action="filter" data-filter="isSquad">isSquad</button>
-        <button class="filter" data-action="filter" data-filter="isExpeled">is expelled</button>
-        <button class="filter" data-action="filter" data-filter="notExpeled">not expeled</button>
-        <button class="filter" data-action="filter" data-filter="All">All</button>
+    <div id="filtering" class="dropdown">
+      <div class="filter">Filter by category</div>
+      <div class="dropdown-wrapper">
+        <button class="filter">Select Category</button>
+        <ul class="dropdown-content">
+          <li data-action="filter" data-filter="Slytherin">Slytherin</li>
+          <li data-action="filter" data-filter="Hufflepuff">Hufflepuff</li>
+          <li data-action="filter" data-filter="Ravenclaw">Ravenclaw</li>
+          <li data-action="filter" data-filter="Gryffindor">Gryffindor</li>
+          <li data-action="filter" data-filter="Girl">Girls</li>
+          <li data-action="filter" data-filter="Boy">Boys</li>
+          <li data-action="filter" data-filter="isSquad">isSquad</li>
+          <li data-action="filter" data-filter="isExpeled">is expelled</li>
+          <li data-action="filter" data-filter="notExpeled">not expelled</li>
+          <li data-action="filter" data-filter="All">All</li>
+        </ul>
       </div>
     </div>
-    <div class="sort_and_search">
-      <div id="sorting"> Sort by ↑↓
-        <p data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="house">house</p>
-        <p data-action="sort" data-sort-direction="desc" data-sort="gender">gender</p>
-      </div>
-      <div class="search_container"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-          class="bi bi-search" viewBox="0 0 16 16">
-          <path
-            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-        </svg> <input type="text" name="search_bar" id="search_bar" placeholder="search students .. ">
-      </div>
+
+    <div class="search_container"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-search" viewBox="0 0 16 16">
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+      </svg> <input type="text" name="search_bar" id="search_bar" placeholder="search students .. ">
     </div>
-    <div class="list">
-      <div id="list"></div>
-    </div> <span class="search_error_modal">student not found 🥴</span>
+
+    <div class="container">
+
+
+      <div class="list">
+        <div class="sort_and_search">
+          <div id="sorting"> Sort by ↑↓
+            <button data-action="sort" data-sort-direction="desc" data-sort="firstname">firstname</button>
+            <button data-action="sort" data-sort-direction="desc" data-sort="middlename">middlename</button>
+            <button data-action="sort" data-sort-direction="desc" data-sort="lastname">lastname</button>
+            <button data-action="sort" data-sort-direction="desc" data-sort="house">house</button>
+            <button data-action="sort" data-sort-direction="desc" data-sort="gender">gender</button>
+          </div>
+        </div>
+        <div id="list">
+        </div>
+      </div>
+      <span class="search_error_modal">student not found 🥴</span>
+
+    </div>
 
   </div>
-
-
 
 
   <div class="container">
@@ -171,17 +181,15 @@
       <span class="prefect"></span>
 
       <div class="overlay">
-        <span class="arrow_down arrows">🞁</span>
+        <!-- <span class="arrow_down arrows">🞁</span> -->
         <div class="popUp_btns">
           <button class="squadMember">Add to Inq Squad</button>
           <button class="prefect_member">Make Prefect</button>
           <button class="expele">Expelle</button>
-
           <span class="student_info ">ℹ</span>
-
         </div>
       </div>
-      <div>
+      <div class="image_container">
         <img src="" alt="">
       </div>
       <h2></h2>

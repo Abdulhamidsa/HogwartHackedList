@@ -1,12 +1,9 @@
 "use strict";
-
 window.addEventListener("DOMContentLoaded", start);
-
 let allStudent = [];
 let bloodType = [];
 let expelledStudents = [];
 let systemIsHacked = false;
-
 const url1 = "https://petlatkea.dk/2021/hogwarts/students.json";
 const url2 = "https://petlatkea.dk/2021/hogwarts/families.json";
 ////////////////////////// The prototype for all students////////////////////////////
@@ -40,7 +37,6 @@ function start() {
   allBtns();
   loadJSON();
 }
-
 ////////////////////////// Load jsons files from the url ////////////////////////////
 async function loadJSON() {
   const response2 = await fetch(url2);
@@ -336,9 +332,8 @@ function displaystudent(student) {
     }
   });
   if (student.isExpeled === true) {
-    clone.querySelector("h2").textContent = "EXPELLED 🞭";
+    clone.querySelector("h2").innerHTML = ` IS EXPELLED <svg width="24" height="24"><path d="M5 5 L19 19 M5 19 L19 5" stroke="black" stroke-width="2"/></svg>`;
     clone.querySelector("h2").style.color = "red";
-
     clone.querySelector(".isSquad").textContent = "";
     clone.querySelector(".expele").textContent = "Is Expelled";
     clone.querySelector(".expele").style.backgroundColor = "grey";
