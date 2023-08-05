@@ -4,13 +4,10 @@
   margin: 0;
 }
 
-:root {
-}
-
 /* SCROOL BAR */
 /* width */
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 1px;
 }
 
 /* Track */
@@ -20,12 +17,36 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(117, 27, 27);
+  background: rgb(133, 116, 116);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+.list::-webkit-scrollbar {
+  width: 15px;
+}
+
+.list::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgb(117, 27, 27);
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: rgb(138, 80, 80);
+}
+
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(117, 27, 27) #ffffff;
+}
+
+body:hover {
+  scrollbar-color: #555 #ffffff;
 }
 /*SCROL BAR */
 
@@ -36,7 +57,8 @@ body {
   background-color: #320909;
   background-image: url(images/website_imgs/classroom.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  /* background-size: cover; */
+  height: auto;
 }
 
 video {
@@ -81,7 +103,7 @@ h1 {
   z-index: 1;
 }
 
-#sorting button {
+.sorting button {
   padding: 0.5rem;
   background-color: #ffffff;
   color: black;
@@ -90,29 +112,31 @@ h1 {
   width: 150px;
   height: 50px;
 }
-#list {
-  border-collapse: collapse;
-}
+
 .sortAndFilter {
   display: flex;
   justify-content: center;
 }
-#sorting {
+.sorting {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   width: 100%;
-  gap: 5rem;
+  gap: 1rem;
   color: white;
   height: fit-content;
   padding: 1rem;
   background-color: #52290e9b;
   border: 1px #200e02 solid;
   border-radius: 10px;
+  overflow-x: auto;
 }
-#sorting p {
+.sorting span {
+  flex: 100%;
+}
+.sorting p {
   border: 1px rgba(0, 0, 0, 0.776) solid;
   background-color: #dbdbdbe2;
   border-radius: 5px;
@@ -268,6 +292,7 @@ h1 {
   display: flex;
   justify-content: center;
 }
+
 .list {
   width: 100%;
   height: 60vh;
@@ -406,6 +431,7 @@ h2 {
   align-items: center;
   gap: 1rem;
   border: 1px #200e02 solid;
+  display: none;
 }
 .view_number_of_fil_st .numbers {
   display: flex;

@@ -60,7 +60,7 @@ function buildList() {
 }
 ////////////////////////// GLOBAL EVENT LISTENERS ////////////////////////////
 function allBtns() {
-  document.querySelectorAll("#sorting [data-action=sort]").forEach((button) => button.addEventListener("click", selectSort));
+  document.querySelectorAll(".sorting [data-action=sort]").forEach((button) => button.addEventListener("click", selectSort));
   document.querySelectorAll("[data-action=filter]").forEach((button) => button.addEventListener("click", selectFilter));
   document.querySelector(".hack").addEventListener("click", hackTheSytem);
   searchBar.addEventListener("keyup", searchingBar);
