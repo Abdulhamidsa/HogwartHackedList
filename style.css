@@ -17,7 +17,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(133, 116, 116);
+  background: rgb(117, 27, 27);
 }
 
 /* Handle on hover */
@@ -57,7 +57,7 @@ body {
   background-color: #320909;
   background-image: url(images/website_imgs/classroom.png);
   background-repeat: no-repeat;
-  /* background-size: cover; */
+  background-size: cover;
   height: auto;
 }
 
@@ -94,6 +94,7 @@ h1 {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 2rem;
 }
 .head img {
   /* min-width: 150px; */
@@ -103,7 +104,8 @@ h1 {
   z-index: 1;
 }
 
-.sorting button {
+.sorting button,
+#filtering button {
   padding: 0.5rem;
   background-color: #ffffff;
   color: black;
@@ -111,13 +113,25 @@ h1 {
   cursor: pointer;
   width: 150px;
   height: 50px;
+  text-transform: uppercase;
 }
 
 .sortAndFilter {
   display: flex;
   justify-content: center;
 }
-.sorting {
+.filter-sort {
+  color: #fff;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+}
+.filter-sort:last-of-type:after {
+  content: "\2193    \2191 ";
+  padding-left: 0.6rem;
+  font-size: 0.95rem;
+}
+.sorting,
+#filtering {
   display: flex;
   justify-content: flex-start;
   flex-direction: row;
@@ -132,15 +146,22 @@ h1 {
   border: 1px #200e02 solid;
   border-radius: 10px;
   overflow-x: auto;
+  margin-bottom: 1rem;
 }
 .sorting span {
   flex: 100%;
+}
+.total_results {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  padding-bottom: 1rem;
+  color: white;
 }
 .sorting p {
   border: 1px rgba(0, 0, 0, 0.776) solid;
   background-color: #dbdbdbe2;
   border-radius: 5px;
-
   color: black;
   padding: 0.7rem;
   text-align: center;
@@ -154,26 +175,12 @@ h1 {
   justify-content: center;
   /* width: -webkit-fill-available; */
 }
-#filtering {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  right: 15%;
-  width: fit-content;
-  height: fit-content;
-  padding: 1rem;
-  background-color: #52290e9b;
-  border: 1px #200e02 solid;
-  border-radius: 10px;
-}
-.filter {
-  color: white;
-}
 
-#filtering button {
+/* .filter {
+  color: white;
+} */
+
+/* #filtering button {
   gap: 1rem;
   border: 1px #200e02 solid;
   border-radius: 5px;
@@ -182,7 +189,7 @@ h1 {
   background-color: #dbdbdbe2;
   color: black;
   text-align: center;
-}
+} */
 #filtering button:hover {
   color: black;
   cursor: pointer;
@@ -597,11 +604,13 @@ h2 {
   align-items: center;
   gap: 0.5rem;
   position: relative;
+  width: 100%;
+  max-width: 450px;
 }
 
 .search_container input {
-  padding: 0.2rem;
-  /* width: 400px; */
+  padding: 0.8rem;
+  width: 100%;
 }
 .search_container svg {
   position: absolute;
@@ -617,6 +626,7 @@ h2 {
   border-radius: 8px;
   cursor: pointer;
   color: black;
+  display: none;
 }
 
 .dropdown-wrapper {
